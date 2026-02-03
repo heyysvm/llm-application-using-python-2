@@ -20,9 +20,6 @@ def ask_api():
     data = request.get_json()
     question = data.get("question")
 
-    if not question:
-        return jsonify({"error": "No question provided"}), 400
-
     answer = study_assistant(question)
     return jsonify({"answer": answer})
 
