@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from google import genai
-import os
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+client = genai.Client(api_key="AIzaSyCsvTdYLkYznHuz5tSqv5yMKy_3bp-unjc")
 
 def study_assistant(user_prompt):
     response = client.models.generate_content(
