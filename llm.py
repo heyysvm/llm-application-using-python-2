@@ -2,8 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from google import genai
 
-
-client = genai.Client(api_key="AIzaSyCsvTdYLkYznHuz5tSqv5yMKy_3bp-unjc")
+client = genai.Client(api_key="AIzaSyDfQDmSPbeFhISNQZv6GFI7HUYTs7b_yys")
 
 def study_assistant(user_prompt):
     response = client.models.generate_content(
@@ -14,7 +13,6 @@ def study_assistant(user_prompt):
 
 app = Flask(__name__)
 CORS(app)
-
 @app.route("/ask", methods=["POST"])
 def ask_api():
     data = request.get_json()
@@ -24,4 +22,4 @@ def ask_api():
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True)
